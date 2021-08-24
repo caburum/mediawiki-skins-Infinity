@@ -1,0 +1,56 @@
+{
+	"name": "Infinity",
+	"version": "1.0.0",
+	"author": ["[https://www.mediawiki.org/wiki/User:Caburum Caburum]", "..."],
+	"url": "https://www.mediawiki.org/wiki/Skin:Infinity",
+	"descriptionmsg": "infinity-skin-desc",
+	"namemsg": "skinname-infinity",
+	"license-name": "GPL-3.0-or-later",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.35.2"
+	},
+	"ValidSkinNames": {
+		"infinity": {
+			"class": "SkinInfinity",
+			"@args": "See SkinInfinity::__construct for more detail.",
+			"args": [
+				{
+					"name": "infinity",
+					"responsive": true,
+					"styles": ["skins.infinity.styles"],
+					"messages": ["sitetitle", "search", "tagline", "navigation-heading"],
+					"scripts": ["skins.infinity.scripts"]
+				}
+			]
+		}
+	},
+	"MessagesDirs": {
+		"Infinity": ["i18n"]
+	},
+	"AutoloadClasses": {
+		"SkinInfinity": "includes/SkinInfinity.php"
+	},
+	"ResourceModules": {
+		"skins.infinity.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"features": {
+				"normalize": true
+			},
+			"styles": ["resources/skins.infinity.styles/skin.less"]
+		},
+		"skins.infinity.scripts": {
+			"scripts": ["resources/skins.infinity.scripts/skin.js"]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Infinity"
+	},
+	"ResourceModuleSkinStyles": {
+		"infinity": {
+			"+ext.echo.styles.badge": "resources/extensions/Echo/echo.styles.badge.less"
+		}
+	},
+	"manifest_version": 1
+}

@@ -1,0 +1,44 @@
+/* Common setup for the Infinity skin */
+
+@import '../variables.less';
+
+@media screen {
+	@import 'layout.less';
+	@import 'common.less';
+}
+
+// Light theme (defualt)
+:root {
+	--surface-color-00dp: @light-surface-color-00dp;
+	--surface-color-01dp: @light-surface-color-01dp;
+	--surface-color-02dp: @light-surface-color-02dp;
+	--surface-color-03dp: @light-surface-color-03dp;
+	--surface-color-04dp: @light-surface-color-04dp;
+	--surface-color-06dp: @light-surface-color-06dp;
+	--surface-color-08dp: @light-surface-color-08dp;
+	--surface-color-12dp: @light-surface-color-12dp;
+	--surface-color-16dp: @light-surface-color-16dp;
+	--surface-color-24dp: @light-surface-color-24dp;
+
+	--text-color: @light-text-color;
+	--text-color-emphasized: @light-text-color-emphasized;
+	--text-color-subtle: @light-text-color-subtle;
+}
+
+// Dark theme
+:root .skin-infinity-dark {
+	--surface-color-00dp: @dark-surface-color-00dp;
+	--surface-color-01dp: @dark-surface-color-01dp;
+	--surface-color-02dp: @dark-surface-color-02dp;
+	--surface-color-03dp: @dark-surface-color-03dp;
+	--surface-color-04dp: @dark-surface-color-04dp;
+	--surface-color-06dp: @dark-surface-color-06dp;
+	--surface-color-08dp: @dark-surface-color-08dp;
+	--surface-color-12dp: @dark-surface-color-12dp;
+	--surface-color-16dp: @dark-surface-color-16dp;
+	--surface-color-24dp: @dark-surface-color-24dp;
+
+	--text-color: @dark-text-color;
+	--text-color-emphasized: @dark-text-color-emphasized;
+	--text-color-subtle: @dark-text-color-subtle;
+}
