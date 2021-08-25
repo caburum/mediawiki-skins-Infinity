@@ -1,72 +1,100 @@
-<div id="mw-wrapper">
-	<div id="mw-navigation">
-		<div id="p-logo" class="mw-portlet" role="banner">
-			<a href="{{link-mainpage}}">
-			{{#data-logos}}
-				{{#icon}}<img src="{{.}}" width="40" height="40">{{/icon}}
-				{{#wordmark}}<img src="{{src}}" width="{{width}}" height="{{height}}">{{/wordmark}}
-				{{^wordmark}}<h1>{{msg-sitetitle}}</h1>{{/wordmark}}
-			{{/data-logos}}
-			</a>
-		</div>
-		{{#data-search-box}}
-		<form action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
-			<input type="hidden" name="title" value="{{page-title}}">
-			<h3>
-				<label for="searchInput">{{msg-search}}</label>
-			</h3>
-			{{{html-input}}}
-			{{{html-button-search}}}
-		</form>
-		{{/data-search-box}}
-		{{#data-portlets}}
-		<div id="user-tools" class="nav">
-			{{#data-personal}}{{>Portlet}}{{/data-personal}}
-		</div>
-		<div id="page-tools" class="nav">
-			{{#data-namespaces}}{{>Portlet}}{{/data-namespaces}}
-			{{#data-variants}}{{>Portlet}}{{/data-variants}}
-			{{#data-views}}{{>Portlet}}{{/data-views}}
-			{{#data-actions}}{{>Portlet}}{{/data-actions}}
-		</div>
-		{{/data-portlets}}
-		<div id="site-navigation" class="nav">
-			{{#data-portlets-sidebar.data-portlets-first}}{{>Portlet}}{{/data-portlets-sidebar.data-portlets-first}}
-			{{#data-portlets-sidebar.array-portlets-rest}}{{>Portlet}}{{/data-portlets-sidebar.array-portlets-rest}}
+<div id="mw-header">
+	<div id="mw-header-siteinfo">
+		<a href="{{link-mainpage}}">
+		{{#data-logos}}
+			{{#icon}}<img src="{{.}}" width="40" height="40">{{/icon}}
+			{{#wordmark}}<img class="mw-logo-wordmark" alt="{{msg-sitetitle}}" src="{{src}}" width="{{width}}" height="{{height}}">{{/wordmark}}
+			{{^wordmark}}<span class="mw-logo-wordmark">{{msg-sitetitle}}</span>{{/wordmark}}
+		{{/data-logos}}
+		</a>
+	</div>
+	<!--
+	{{#data-search-box}}
+	<form action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
+		<input type="hidden" name="title" value="{{page-title}}">
+		<h3>
+			<label for="searchInput">{{msg-search}}</label>
+		</h3>
+		{{{html-input}}}
+		{{{html-button-search}}}
+	</form>
+	{{/data-search-box}}
+	--><!--
+	{{#data-portlets}}
+	<div id="user-tools" class="nav">
+		{{#data-personal}}{{>Portlet}}{{/data-personal}}
+	</div>
+	{{/data-portlets}}
+	<div id="site-navigation" class="nav">
+		{{#data-portlets-sidebar.data-portlets-first}}{{>Portlet}}{{/data-portlets-sidebar.data-portlets-first}}
+		{{#data-portlets-sidebar.array-portlets-rest}}{{>Portlet}}{{/data-portlets-sidebar.array-portlets-rest}}
+	</div>
+	-->
+</div>
+<main class="mw-body">
+	<div id="siteNotice">{{{html-site-notice}}}</div>
+
+	{{{html-user-message}}}
+
+	<div class="mw-indicators mw-body-content">
+	{{#array-indicators}}
+		<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+	{{/array-indicators}}
+	</div>
+
+	<header class="mw-body-header">
+		<div class="mw-body-header-top">
 			{{#data-portlets.data-languages}}{{>Portlet}}{{/data-portlets.data-languages}}
 		</div>
-	</div>
-	<div class="mw-body" id="content" role="main">
-		<div id="siteNotice">{{{html-site-notice}}}</div>
-		{{{html-user-message}}}
-		<div class="mw-indicators mw-body-content">
-		{{#array-indicators}}
-		<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-		{{/array-indicators}}
-		</div>
-		<h1 class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
-		<div id="siteSub">{{msg-tagline}}</div>
-		<div class="mw-body-content">
-			<div id="contentSub">
-				{{{html-subtitle}}}
-				{{{html-undelete-link}}}
+		<div class="mw-body-header-bottom">
+			<div class="mw-body-header-title">
+				<h1 class="firstHeading" id="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+				<div id="siteSub">{{msg-tagline}}</div>
 			</div>
-			{{{html-body-content}}}
-			<!-- todo: replace with .mixin-clearfix -->
-			<div class="visualClear"></div>
-			{{{html-categories}}}
+			{{#data-pagetools}}
+			<div class="mw-body-header-actions">
+				{{#data-page-views}}
+					<nav id="p-views">{{{html-items}}}</nav>
+				{{/data-page-views}}
+				<div class="mw-dropdown">
+					<div class="mw-dropdown-toggle">
+						toggle
+					</div>
+					<div class="mw-dropdown-content">
+						{{#data-page-actions}}{{>Menu}}{{/data-page-actions}}
+						{{#data-namespaces}}{{>Menu}}{{/data-namespaces}}
+						{{#data-variants}}{{>Menu}}{{/data-variants}}
+						{{#data-page-toolbox}}{{>Menu}}{{/data-page-toolbox}}
+					</div>
+				</div>
+			</div>
+			{{/data-pagetools}}
 		</div>
-		{{{html-after-content}}}
-	</div>
-	<div id="footer" class="mw-footer" role="contentinfo" {{{html-user-language-attributes}}}>
-		{{#data-footer}}
-		{{!}}{{#data-icons}}{{>FooterList}}{{/data-icons}}
-		{{!}}<div id="footer-list">
-		{{!}}{{#data-info}}{{>FooterList}}{{/data-info}}
-		{{!}}{{#data-places}}{{>FooterList}}{{/data-places}}
-		{{!}}</div>
-		{{/data-footer}}
+	</header>
+
+	<div class="mw-body-content" id="content">
+		<div id="contentSub">
+			{{{html-subtitle}}}
+			{{{html-undelete-link}}}
+		</div>
+		{{{html-body-content}}}
+
 		<!-- todo: replace with .mixin-clearfix -->
 		<div class="visualClear"></div>
+
+		{{{html-categories}}}
 	</div>
+
+	{{{html-after-content}}}
+</main>
+<div id="footer" class="mw-footer" role="contentinfo" {{{html-user-language-attributes}}}>
+	{{#data-footer}}
+	{{!}}{{#data-icons}}{{>FooterList}}{{/data-icons}}
+	{{!}}<div id="footer-list">
+	{{!}}{{#data-info}}{{>FooterList}}{{/data-info}}
+	{{!}}{{#data-places}}{{>FooterList}}{{/data-places}}
+	{{!}}</div>
+	{{/data-footer}}
+	<!-- todo: replace with .mixin-clearfix -->
+	<div class="visualClear"></div>
 </div>

@@ -12,7 +12,7 @@
 	},
 	"ValidSkinNames": {
 		"infinity": {
-			"class": "SkinInfinity",
+			"class": "MediaWiki\\Skin\\Infinity\\SkinInfinity",
 			"@args": "See SkinInfinity::__construct for more detail.",
 			"args": [
 				{
@@ -30,6 +30,9 @@
 	},
 	"AutoloadClasses": {
 		"SkinInfinity": "includes/SkinInfinity.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Skin\\Infinity\\": "includes/"
 	},
 	"ResourceModules": {
 		"skins.infinity.styles": {

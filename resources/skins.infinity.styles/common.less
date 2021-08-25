@@ -1,3 +1,9 @@
+/* Main site layout and design */
+
+:root {
+	--header-height: 50px;
+}
+
 html,
 body {
 	min-height: 100%;
@@ -7,15 +13,67 @@ body {
 	color: var(--text-color);
 }
 
+.mw-body,
+.parsoid-body {
+	min-height: 80vh;
+	padding: 5px 20px 0;
+	margin-top: var(--header-height);
+}
+
+#mw-header {
+	height: var(--header-height);
+	background-color: black;
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+	justify-content: space-between;
+
+	& > div {
+		display: flex;
+		align-items: center;
+	}
+}
+
 :focus {
 	outline-color: var(--accent-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* prettier-ignore */
+h1, h2, h3, h4, h5, h6 {
 	color: var(--text-color-emphasized);
+	margin: 0;
+}
+
+/***** Buttons *****/
+.mw-button {
+	border-radius: 3px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 7px 18px;
+	min-height: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: unset;
+
+	& > svg {
+		margin-right: 9px;
+		fill: currentColor;
+	}
+
+	&:hover {
+		background-color: var(--surface-color-03dp);
+	}
+}
+
+.mw-button.primary {
+	background-color: var(--accent-color);
+	color: var(--accent-color-label);
+
+	&:hover {
+		background-color: var(--accent-color-hover);
+	}
 }

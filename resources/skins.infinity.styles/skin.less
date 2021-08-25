@@ -3,12 +3,17 @@
 @import '../variables.less';
 
 @media screen {
-	@import 'layout.less';
 	@import 'common.less';
+	@import 'body-header.less';
+	@import 'dropdown.less';
 }
 
-// Light theme (defualt)
 :root {
+	--accent-color: @accent-color;
+	--accent-color-hover: @accent-color-hover;
+	--accent-color-label: @accent-color-label;
+
+	// Light theme (defualt)
 	--surface-color-00dp: @light-surface-color-00dp;
 	--surface-color-01dp: @light-surface-color-01dp;
 	--surface-color-02dp: @light-surface-color-02dp;

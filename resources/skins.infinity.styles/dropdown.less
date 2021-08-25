@@ -1,0 +1,30 @@
+.mw-dropdown {
+	display: inline-block;
+	position: relative;
+
+	.mw-dropdown-toggle {
+		cursor: default;
+		position: relative;
+	}
+
+	.mw-dropdown-content {
+		background-color: var(--surface-color-08dp);
+		color: var(--text-color);
+		border: 1px solid var(--border-color);
+		border-radius: 4px;
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		min-width: 70%;
+		padding: 7px 0;
+		transform: translateX(-50%);
+		z-index: 1;
+	}
+
+	&:hover {
+		.mw-dropdown-content {
+			display: inline-block;
+		}
+	}
+}
