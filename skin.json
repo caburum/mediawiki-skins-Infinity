@@ -50,10 +50,5 @@
 		"localBasePath": "",
 		"remoteSkinPath": "Infinity"
 	},
-	"ResourceModuleSkinStyles": {
-		"infinity": {
-			"+ext.echo.styles.badge": "resources/extensions/Echo/echo.styles.badge.less"
-		}
-	},
 	"manifest_version": 1
 }
